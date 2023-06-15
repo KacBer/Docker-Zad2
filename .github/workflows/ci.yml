@@ -25,12 +25,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # - name: Build and push Docker images
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     push: true
-      #     platforms: linux/arm64/v8,linux/amd64
-      #     tags: |
-      #       myregistry/my-app:arm64
-      #       myregistry/my-app:amd64
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          push: true
+          platforms: linux/arm64/v8,linux/amd64
+          tags: |
+            djkarber/zad2-docker:arm64
+            djkarber/zad2-docker:amd64
